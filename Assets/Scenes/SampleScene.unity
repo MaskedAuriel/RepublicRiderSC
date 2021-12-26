@@ -137,6 +137,7 @@ GameObject:
   - component: {fileID: 153972604}
   - component: {fileID: 153972608}
   - component: {fileID: 153972609}
+  - component: {fileID: 153972611}
   - component: {fileID: 153972610}
   m_Layer: 0
   m_Name: player
@@ -234,6 +235,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1299b553ea41f4747b8e33cc3f786563, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  classicColor: {fileID: 2100000, guid: 6c034fe37cc7595438dbbb56e8a78917, type: 2}
+  sliddingColor: {fileID: 2100000, guid: d2e69b843a805c7489a95010bf55c893, type: 2}
+  unknownColor: {fileID: 0}
 --- !u!114 &153972609
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -260,8 +264,20 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &153972611
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 153972603}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38b1b09d99cba634db7d97533172cbd4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &360750233
 GameObject:
   m_ObjectHideFlags: 0
@@ -594,7 +610,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0.3768436, y: -0, z: -0, w: 0.92627686}
-  m_LocalPosition: {x: 0, y: 9.5, z: -10}
+  m_LocalPosition: {x: 0, y: 50.61, z: -69.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 153972607}

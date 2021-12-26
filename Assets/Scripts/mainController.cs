@@ -11,6 +11,10 @@ public class mainController : MonoBehaviour
     public delegateConstroller playerMovementLeft;
     public delegateConstroller playerMovementRight;
 
+    public Material classicColor;
+    public Material sliddingColor;
+    public Material unknownColor;
+
 
     private void Start()
     {
@@ -31,18 +35,31 @@ public class mainController : MonoBehaviour
         playerMovementRight = GetComponent<classicController>().moveRight;
     }
 
+    private void sliddingController()
+    {
+        playerMovementUp = GetComponent<sliddingController>().moveUp;
+        playerMovementDown = GetComponent<sliddingController>().moveDown;
+        playerMovementLeft = GetComponent<sliddingController>().moveLeft;
+        playerMovementRight = GetComponent<sliddingController>().moveRight;
+    }
+
+
     private void switchManager()
     {
         if (Input.GetKeyDown("e"))
         {
             print("e");
+            GetComponent<MeshRenderer>().material = classicColor;
             playerMovement = classicController;
             playerMovement.Invoke();
         }
         if (Input.GetKeyDown("r"))
         {
             print("r");
-            //playerMovement = ;
+            GetComponent<MeshRenderer>().material = sliddingColor;
+            playerMovement = sliddingController;
+            playerMovement.Invoke();
+
         }
         if (Input.GetKeyDown("f"))
         {
