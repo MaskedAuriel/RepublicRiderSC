@@ -57,6 +57,7 @@
     <Compile Include="Assets\Scripts\mainController.cs" />
     <Compile Include="Assets\Scripts\sliddingController.cs" />
     <Compile Include="Assets\Scripts\rotatingController.cs" />
+    <Compile Include="Assets\Scripts\hideObstacleManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

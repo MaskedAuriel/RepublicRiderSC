@@ -17,22 +17,59 @@ public class classicController : MonoBehaviour
     }
 
     public void moveLeft()
-    {        
-        gameObject.GetComponent<Rigidbody>().velocity = new Vector3(-7, 0, 0);
+    {
+        setVelocity(-5, 0);
     }
 
     public void moveRight()
     {
-        gameObject.GetComponent<Rigidbody>().velocity = new Vector3(7, 0, 0);
+        setVelocity(5, 0);
     }
 
     public void moveUp()
     {
-        gameObject.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 7);
+        setVelocity(0, 5);
     }
 
     public void moveDown()
     {
-        gameObject.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, -7);
+        setVelocity(0,-5);        
+    }
+
+    public void jump()
+    {
+        if(checkIfGrounded())
+        {
+            gameObject.GetComponent<Rigidbody>().velocity = new Vector3(0, 7, 0);
+            //GetComponent<Rigidbody>().AddForce(new Vector3(0, 2, 0));
+        }
+        
+    }
+
+    private void manageGravity()
+    {
+        if (!checkIfGrounded())
+        {
+            GetComponent<Rigidbody>().AddForce(new Vector3(0, -5, 0));
+        }
+    }
+    private bool checkIfGrounded()
+    {
+        return Physics.Raycast(transform.position, -Vector3.up, GetComponent<Collider>().bounds.extents.y + 0.1f);
+    }
+
+    public void setVelocity(int x, int z)
+    {
+        /*int fallVelocity = 0;
+        if(!checkIfGrounded())
+        {
+            fallVelocity = -6;
+        }
+        gameObject.GetComponent<Rigidbody>().velocity = new Vector3(x, fallVelocity, z);*/
+        
+        gameObject.GetComponent<Rigidbody>().velocity = new Vector3(x, -2, z);
+        
+        
     }
 }
+

@@ -10,6 +10,7 @@ public class mainController : MonoBehaviour
     public delegateConstroller playerMovementDown;
     public delegateConstroller playerMovementLeft;
     public delegateConstroller playerMovementRight;
+    public delegateConstroller playerMovementJump;
 
     public Material classicColor;
     public Material sliddingColor;
@@ -33,9 +34,19 @@ public class mainController : MonoBehaviour
         playerMovementDown = GetComponent<classicController>().moveDown ;
         playerMovementLeft =  GetComponent<classicController>().moveLeft;
         playerMovementRight = GetComponent<classicController>().moveRight;
+        playerMovementJump = GetComponent<classicController>().jump;
     }
 
     private void sliddingController()
+    {
+        playerMovementUp = GetComponent<sliddingController>().moveUp;
+        playerMovementDown = GetComponent<sliddingController>().moveDown;
+        playerMovementLeft = GetComponent<sliddingController>().moveLeft;
+        playerMovementRight = GetComponent<sliddingController>().moveRight;
+        playerMovementJump = GetComponent<sliddingController>().jump;
+    }
+
+    private void flyingController()
     {
         playerMovementUp = GetComponent<sliddingController>().moveUp;
         playerMovementDown = GetComponent<sliddingController>().moveDown;
@@ -104,5 +115,11 @@ public class mainController : MonoBehaviour
             playerMovementRight.Invoke();
             
         }
+        if(Input.GetKey(KeyCode.Space))
+        {
+            playerMovementJump.Invoke();
+        }
     }
+
+    
 }

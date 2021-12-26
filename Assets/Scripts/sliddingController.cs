@@ -6,22 +6,27 @@ public class sliddingController : MonoBehaviour
 { 
     public void moveLeft()
     {
-        gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(-3, 0, 0));
+        gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(-2, 0, 0));
     }
 
     public void moveRight()
     {
-        gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(3, 0, 0));
+        gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(2, 0, 0));
     }
 
     public void moveUp()
     {
-        gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(0, 0, 3));
+        gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(0, 0, 2));
     }
 
     public void moveDown()
     {
-        gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(0, 0, -3));
+        gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(0, 0, -2));
+    }
+
+    public void jump()
+    {
+        //nothing
     }
 }
 
