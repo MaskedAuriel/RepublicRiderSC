@@ -57,7 +57,8 @@
     <Compile Include="Assets\Scripts\mainController.cs" />
     <Compile Include="Assets\Scripts\sliddingController.cs" />
     <Compile Include="Assets\Scripts\rotatingController.cs" />
-    <Compile Include="Assets\Scripts\hideObstacleManager.cs" />
+    <Compile Include="Assets\Scripts\climbingController.cs" />
+    <Compile Include="Assets\Scripts\triggerClimbableManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

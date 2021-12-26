@@ -67,9 +67,7 @@ public class classicController : MonoBehaviour
         }
         gameObject.GetComponent<Rigidbody>().velocity = new Vector3(x, fallVelocity, z);*/
         
-        gameObject.GetComponent<Rigidbody>().velocity = new Vector3(x, -2, z);
-        
-        
+        gameObject.GetComponent<Rigidbody>().velocity = new Vector3(x, -2, z);        
     }
 }
 

@@ -13,19 +13,26 @@ public class mainController : MonoBehaviour
     public delegateConstroller playerMovementJump;
 
     public Material classicColor;
-    public Material sliddingColor;
-    //public Material rotatingColor;
+    public Material sliddingColor; 
+    public Material climbingColor;
+    
+    public bool canClimb;
+    public bool isClimbing;
+   
 
 
     private void Start()
     {
         playerMovement = classicController;
         playerMovement.Invoke();
+
     }
     private void Update()
     {
         switchManager();
         movementManager();        
+            
+        
     }
 
     private void classicController()
@@ -46,12 +53,12 @@ public class mainController : MonoBehaviour
         playerMovementJump = GetComponent<sliddingController>().jump;
     }
 
-    private void flyingController()
+    private void climbingController()
     {
-        playerMovementUp = GetComponent<sliddingController>().moveUp;
-        playerMovementDown = GetComponent<sliddingController>().moveDown;
-        playerMovementLeft = GetComponent<sliddingController>().moveLeft;
-        playerMovementRight = GetComponent<sliddingController>().moveRight;
+        playerMovementUp = GetComponent<climbingController>().moveUp;
+        playerMovementDown = GetComponent<climbingController>().moveDown;
+        playerMovementLeft = GetComponent<climbingController>().moveLeft;
+        playerMovementRight = GetComponent<climbingController>().moveRight;
     }
 
     /*private void rotatingController()
@@ -69,6 +76,7 @@ public class mainController : MonoBehaviour
         {
             
             GetComponent<MeshRenderer>().material = classicColor;
+            //GetComponent<Rigidbody>().isKinematic = false;
             playerMovement = classicController;
             playerMovement.Invoke();
         }
@@ -76,14 +84,17 @@ public class mainController : MonoBehaviour
         {
            
             GetComponent<MeshRenderer>().material = sliddingColor;
+            //GetComponent<Rigidbody>().isKinematic = false;
             playerMovement = sliddingController;
             playerMovement.Invoke();
 
         }
-        if (Input.GetKeyDown("f"))
+        if (Input.GetKeyDown("f") && canClimb)
         {
-            /*GetComponent<MeshRenderer>().material = rotatingColor;
-            playerMovement = rotatingController;*/
+
+            GetComponent<MeshRenderer>().material = climbingColor;
+            //GetComponent<Rigidbody>().isKinematic = true;
+            playerMovement = climbingController;
             playerMovement.Invoke();
             
         }
