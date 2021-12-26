@@ -13,7 +13,7 @@ public class mainController : MonoBehaviour
 
     public Material classicColor;
     public Material sliddingColor;
-    public Material unknownColor;
+    //public Material rotatingColor;
 
 
     private void Start()
@@ -43,19 +43,27 @@ public class mainController : MonoBehaviour
         playerMovementRight = GetComponent<sliddingController>().moveRight;
     }
 
+    /*private void rotatingController()
+    {
+        playerMovementUp = GetComponent<rotatingController>().moveUp;
+        playerMovementDown = GetComponent<rotatingController>().moveDown;
+        playerMovementLeft = GetComponent<rotatingController>().moveLeft;
+        playerMovementRight = GetComponent<rotatingController>().moveRight;
+    }*/
+
 
     private void switchManager()
     {
         if (Input.GetKeyDown("e"))
         {
-            print("e");
+            
             GetComponent<MeshRenderer>().material = classicColor;
             playerMovement = classicController;
             playerMovement.Invoke();
         }
         if (Input.GetKeyDown("r"))
         {
-            print("r");
+           
             GetComponent<MeshRenderer>().material = sliddingColor;
             playerMovement = sliddingController;
             playerMovement.Invoke();
@@ -63,8 +71,10 @@ public class mainController : MonoBehaviour
         }
         if (Input.GetKeyDown("f"))
         {
-            print("f");
-            //playerMovement = ;
+            /*GetComponent<MeshRenderer>().material = rotatingColor;
+            playerMovement = rotatingController;*/
+            playerMovement.Invoke();
+            
         }
     }
 
@@ -72,25 +82,25 @@ public class mainController : MonoBehaviour
     {
         if (Input.GetKey("z"))
         {
-            print("z");
+            
             playerMovementUp.Invoke();
             
         }
         if (Input.GetKey("q"))
         {
-            print("q");
+            
             playerMovementLeft.Invoke();
             
         }
         if (Input.GetKey("s"))
         {
-            print("s");
+            
             playerMovementDown.Invoke();
             
         }
         if (Input.GetKey("d"))
         {
-            print("d");
+            
             playerMovementRight.Invoke();
             
         }
