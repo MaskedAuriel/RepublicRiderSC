@@ -6,11 +6,16 @@ public class mainController : MonoBehaviour
 {
     public delegate void delegateConstroller();
     public delegateConstroller playerMovement;
+    public delegateConstroller playerMovementUp;
+    public delegateConstroller playerMovementDown;
+    public delegateConstroller playerMovementLeft;
+    public delegateConstroller playerMovementRight;
 
 
     private void Start()
     {
         playerMovement = classicController;
+        playerMovement.Invoke();
     }
     private void Update()
     {
@@ -20,7 +25,10 @@ public class mainController : MonoBehaviour
 
     private void classicController()
     {
-
+        playerMovementUp = GetComponent<classicController>().moveUp;
+        playerMovementDown = GetComponent<classicController>().moveDown ;
+        playerMovementLeft =  GetComponent<classicController>().moveLeft;
+        playerMovementRight = GetComponent<classicController>().moveRight;
     }
 
     private void switchManager()
@@ -29,6 +37,7 @@ public class mainController : MonoBehaviour
         {
             print("e");
             playerMovement = classicController;
+            playerMovement.Invoke();
         }
         if (Input.GetKeyDown("r"))
         {
@@ -44,24 +53,28 @@ public class mainController : MonoBehaviour
 
     private void movementManager()
     {
-        if (Input.GetKeyDown("z"))
+        if (Input.GetKey("z"))
         {
             print("z");
+            playerMovementUp.Invoke();
             
         }
-        if (Input.GetKeyDown("q"))
+        if (Input.GetKey("q"))
         {
             print("q");
+            playerMovementLeft.Invoke();
             
         }
-        if (Input.GetKeyDown("s"))
+        if (Input.GetKey("s"))
         {
             print("s");
+            playerMovementDown.Invoke();
             
         }
-        if (Input.GetKeyDown("d"))
+        if (Input.GetKey("d"))
         {
             print("d");
+            playerMovementRight.Invoke();
             
         }
     }
