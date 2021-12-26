@@ -25,14 +25,17 @@ public class mainController : MonoBehaviour
     {
         playerMovement = classicController;
         playerMovement.Invoke();
+        isClimbing = false;
 
     }
     private void Update()
     {
         switchManager();
-        movementManager();        
-            
-        
+        movementManager();
+        if(isClimbing && !canClimb)
+        {
+            passToClassicMovement();
+        }
     }
 
     private void classicController()
@@ -74,17 +77,13 @@ public class mainController : MonoBehaviour
     {
         if (Input.GetKeyDown("e"))
         {
-            
-            GetComponent<MeshRenderer>().material = classicColor;
-            //GetComponent<Rigidbody>().isKinematic = false;
-            playerMovement = classicController;
-            playerMovement.Invoke();
+            passToClassicMovement();
         }
         if (Input.GetKeyDown("r"))
         {
            
-            GetComponent<MeshRenderer>().material = sliddingColor;
-            //GetComponent<Rigidbody>().isKinematic = false;
+            GetComponent<MeshRenderer>().material = sliddingColor;           
+            isClimbing = false;
             playerMovement = sliddingController;
             playerMovement.Invoke();
 
@@ -92,12 +91,20 @@ public class mainController : MonoBehaviour
         if (Input.GetKeyDown("f") && canClimb)
         {
 
-            GetComponent<MeshRenderer>().material = climbingColor;
-            //GetComponent<Rigidbody>().isKinematic = true;
+            GetComponent<MeshRenderer>().material = climbingColor;           
+            isClimbing = true;
             playerMovement = climbingController;
             playerMovement.Invoke();
             
         }
+    }
+
+    private void passToClassicMovement()
+    {
+        GetComponent<MeshRenderer>().material = classicColor;       
+        isClimbing = false;
+        playerMovement = classicController;
+        playerMovement.Invoke();
     }
 
     private void movementManager()
